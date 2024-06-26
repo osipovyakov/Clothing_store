@@ -38,7 +38,10 @@ class Product(models.Model):
         max_length=200,
         db_index=True
         )
-    image = models.ImageField(upload_to='products/', blank=True)
+    image = models.ImageField(
+        upload_to='products/',
+        blank=True
+        )
     description = models.TextField(
         blank=True,
         verbose_name='Описание продукта'
@@ -50,13 +53,11 @@ class Product(models.Model):
         )
     stock = models.PositiveIntegerField(
         default=1
-    )
+        )
     available = models.BooleanField(
         default=True,
         verbose_name='Доступность продукта'
         )
-    #created = models.DateTimeField(auto_now_add=True)
-    #updated = models.DateTimeField(auto_now=True)
 
     class Meta:
         ordering = ('name',)
