@@ -38,7 +38,7 @@ class Product(models.Model):
         max_length=200,
         db_index=True
         )
-    image = models.ImageField(upload_to='products/%Y/%m/%d', blank=True)
+    image = models.ImageField(upload_to='products/', blank=True)
     description = models.TextField(
         blank=True,
         verbose_name='Описание продукта'
