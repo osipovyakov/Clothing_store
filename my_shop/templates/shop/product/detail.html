@@ -6,76 +6,76 @@
 {% block content %}
 <style>
     .container {
-        max-width: 1200px; /* Максимальная ширина контейнера */
-        margin: 0 auto; /* Центрируем контейнер по горизонтали */
-        padding: 20px; /* Внутренние отступы контейнера */
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
     }
 
     .product-detail {
         display: flex;
         justify-content: space-between;
-        align-items: flex-start; /* Выравнивание элементов по верхнему краю */
-        margin-bottom: 30px; /* Отступ снизу между продуктами */
-        border-bottom: 1px solid #ccc; /* Рамка снизу для разделения продуктов */
-        padding-bottom: 20px; /* Внутренний отступ снизу */
+        align-items: flex-start;
+        margin-bottom: 30px;
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 20px;
     }
 
     .product-info {
         flex: 1;
-        padding-right: 20px; /* Отступ справа между текстом и изображением */
+        padding-right: 20px;
     }
 
     .product-info h2 {
-        font-size: 1.8em; /* Размер шрифта названия продукта */
-        color: #333; /* Цвет текста названия */
-        margin-bottom: 10px; /* Отступ снизу */
+        font-size: 1.8em;
+        color: #333;
+        margin-bottom: 10px;
     }
 
     .product-info h3 {
-        font-size: 1.2em; /* Размер шрифта категории */
-        color: #333; /* Цвет текста категории */
-        margin-bottom: 15px; /* Отступ снизу */
+        font-size: 1.2em;
+        color: #333;
+        margin-bottom: 15px;
     }
 
     .product-info h3 a {
-        text-decoration: none; /* Убираем подчеркивание у ссылки */
-        color: #333; /* Цвет текста ссылки */
+        text-decoration: none;
+        color: #333;
     }
 
     .price {
-        font-size: 1.5em; /* Размер шрифта цены */
-        color: #f56c40; /* Цвет текста цены */
-        margin-bottom: 15px; /* Отступ снизу */
+        font-size: 1.5em;
+        color: #f56c40;
+        margin-bottom: 15px;
     }
 
     .product-image {
         flex: 1;
-        text-align: center; /* Центрирование изображения */
+        text-align: center;
     }
 
     .product-image img {
         max-width: 100%;
-        height: auto; /* Автоматическая высота для изображения */
-        border-radius: 8px; /* Закругление углов изображения */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Тень под изображением */
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 
     .product-info form {
-        margin-top: 15px; /* Отступ сверху для формы */
+        margin-top: 15px;
     }
 
     .product-info form input[type="submit"] {
-        background-color: #f56c40; /* Цвет фона кнопки */
-        color: white; /* Цвет текста кнопки */
+        background-color: #f56c40;
+        color: white;
         border: none;
         padding: 10px 20px;
-        font-size: 1em; /* Размер шрифта кнопки */
+        font-size: 1em;
         cursor: pointer;
-        transition: background-color 0.3s ease; /* Плавное изменение цвета фона */
+        transition: background-color 0.3s ease;
     }
 
     .product-info form input[type="submit"]:hover {
-        background-color: #e25728; /* Цвет фона при наведении */
+        background-color: #e25728;
     }
 </style>
 
