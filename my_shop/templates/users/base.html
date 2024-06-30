@@ -1,0 +1,21 @@
+{% load static %}
+<html>
+  <body>
+    <div id="header">
+      {% include 'includes/header.html' %}
+    </div>
+    <div id="subheader">
+      <div class="container py-5">  
+        {% block title %}
+          <h1>Контент не подвезли</h1>
+        {% endblock %}
+        {% block content %}
+          Контент не подвезли
+        {% endblock %}
+      </div>
+    </div>
+    <footer class="border-top text-center py-3">
+      {% include 'includes/footer.html'%} 
+    </footer>
+  </body>
+</html>

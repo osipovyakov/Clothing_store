@@ -1,0 +1,88 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мой магазин</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <style>
+        header {
+            background-color: lightskyblue;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: #000;
+            font-size: 24px;
+            font-weight: bold;
+            margin-right: auto;
+            text-decoration: none;
+        }
+
+        .nav-pills {
+            display: flex;
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+    
+        .nav-item {
+            height: 40px;
+            line-height: 40px;
+            margin-left: 10px;
+        }
+    
+        .nav-link {
+            color: #333;
+            text-decoration: none;
+            display: inline-block;
+            padding: 0 10px;
+            text-align: center;
+            height: 100%;
+            box-sizing: border-box;
+            transition: background-color 0.3s;
+        }
+        
+        .nav-link:hover {
+            background-color: #f0f0f0;
+        }
+
+        .nav-link.active {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="/" class="logo">Мой магазин</a>
+        {% with request.resolver_match.view_name as view_name %} 
+            <ul class="nav nav-pills">
+            {% if user.is_authenticated %}
+                <li class="nav-item"> 
+                    <a class="nav-link {% if view_name  == 'users:password_change' %}active{% endif %}" 
+                    href="{% url 'users:password_change' %}">Изменить пароль</a>
+                </li>
+                <li class="nav-item"> 
+                    <a class="nav-link {% if view_name  == 'users:logout' %}active{% endif %}"
+                    href="{% url 'users:logout' %}">Выйти</a>
+                </li>
+                <li class="nav-item">
+                    {{ user.username }}
+                </li>
+            {% else %}
+                <li class="nav-item"> 
+                    <a class="nav-link {% if view_name  == 'users:login' %}active{% endif %}"
+                    href="{% url 'users:login' %}">Войти</a>
+                </li>
+                <li class="nav-item"> 
+                    <a class="nav-link {% if view_name  == 'users:signup' %}active{% endif %}"
+                    href="{% url 'users:signup' %}">Регистрация</a>
+                </li>
+            {% endif %}
+        {% endwith %}
+    </header>
+</body>
