@@ -1,3 +1,6 @@
 <footer class="border-top text-center py-3">
-    <p>{{ year }}</p>    
-</footer> 
+    <p>© <span id="currentYear"></span> Мой магазин</p>    
+</footer>
+<script>
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+</script>

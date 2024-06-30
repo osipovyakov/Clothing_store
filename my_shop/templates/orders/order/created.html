@@ -3,7 +3,37 @@
 {% block title %}Благодарим за заказ!{% endblock %}
 
 {% block content %}
+<style>
+    .thank-you-page {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 4px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+
+    .thank-you-page h1 {
+        color: #333;
+        margin-bottom: 20px;
+    }
+
+    .thank-you-page p {
+        font-size: 1.2em;
+        color: #666;
+        margin-bottom: 20px;
+    }
+
+    .thank-you-page strong {
+        color: #f56c40;
+        font-size: 1.2em;
+    }
+</style>
+
+<div class="thank-you-page">
     <h1>Благодарим за заказ!</h1>
     <p>Ваш заказ успешно оформлен. Номер Вашего заказа:
         <strong>{{ order.id }}</strong>.</p>
+</div>
 {% endblock %}

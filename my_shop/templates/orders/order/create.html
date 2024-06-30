@@ -3,22 +3,109 @@
 {% block title %}Оформление заказа{% endblock %}
 
 {% block content %}
-    <h1>Оформление заказа</h1>
-    <div class="order-info">
-        <h3>Ваш заказ</h3>
-        <ul>
-            {% for item in cart %}
-                <li>
-                    {{ item.quantity }}x {{ item.product.name }}
-                    <span>₽{{ item.total_price }}</span>
-                </li>
-            {% endfor %}
-        </ul>
-        <p>Общая стоимость: ₽{{ cart.get_total_price }}</p>
-    </div>
-    <form action="." method="post" class="order-form">
-        {{ form.as_p }}
-        <p><input type="submit" value="Оформить заказ"></p>
-        {% csrf_token %}
-    </form>
+<style>
+    .order-info {
+        background-color: #f9f9f9;
+        padding: 20px;
+        margin-bottom: 20px;
+        border-radius: 4px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .order-info h3 {
+        color: #333;
+        margin-bottom: 10px;
+    }
+
+    .order-info ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .order-info ul li {
+        border-bottom: 1px solid #ddd;
+        padding: 10px 0;
+    }
+
+    .order-info ul li:last-child {
+        border-bottom: none;
+    }
+
+    .order-info ul li span {
+        float: right;
+        color: #f56c40;
+    }
+
+    .order-info p {
+        font-size: 1.2em;
+        margin-top: 10px;
+    }
+
+    .order-form {
+        max-width: 500px;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 4px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .order-form input[type="submit"] {
+        background-color: #f56c40;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 1em;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .order-form input[type="submit"]:hover {
+        background-color: #e25728;
+    }
+
+    .order-form label {
+        display: block;
+        margin-bottom: 10px;
+        color: #333;
+    }
+
+    .order-form input[type="text"],
+    .order-form input[type="email"],
+    .order-form textarea {
+        width: 100%;
+        padding: 10px;
+        font-size: 1em;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+    }
+
+    .order-form textarea {
+        height: 120px;
+        resize: vertical;
+    }
+</style>
+
+<h1>Оформление заказа</h1>
+
+<div class="order-info">
+    <h3>Ваш заказ</h3>
+    <ul>
+        {% for item in cart %}
+            <li>
+                {{ item.quantity }}x {{ item.product.name }}
+                <span>₽{{ item.total_price }}</span>
+            </li>
+        {% endfor %}
+    </ul>
+    <p>Общая стоимость: ₽{{ cart.get_total_price }}</p>
+</div>
+
+<form action="." method="post" class="order-form">
+    {{ form.as_p }}
+    <p><input type="submit" value="Оформить заказ"></p>
+    {% csrf_token %}
+</form>
 {% endblock %}
