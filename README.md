@@ -7,37 +7,52 @@
 ## Инструкция по запуску проекта локально
 
 1. Клонировать репозиторий
-
-    - с помощью SSH
-    ```bash
-    git clone git@github.com:osipovyakov/test_shop.git
-    ```
     - с помощью HTTPS
     ```bash
     git clone https://github.com/osipovyakov/test_shop.git
     ```
-2. Cоздать и активировать виртуальное окружение, установить зависимости
-
-    - установить виртуальное окружение
+2. Cоздать виртуальное окружение
    ```bash
-   python3.9 -m venv venv
+   py -3.9 -m venv venv
    ```
-  - Установить зависимости из файла requirements.txt
+3. Активировать виртуальное окружение
+   ```bash
+   source venv/Scripts/activate
+   ```
+4. Установить и обновить pip 
   ```bash
     python -m pip install --upgrade pip
-    pip install -r requirements.txt
-  ```
-3. Выполнить миграции и запустить проект
-  - Выполнить миграции:
+```
+5. Перейти в директорию проекта
+   ```bash
+   cd my_shop/
+   ```
+6. Установить необходимые библиотеки из файла с зависимостями
+   ```bash
+   pip install -r requirements.txt
+   ```
+7. Применить миграции
   ```bash
     python manage.py makemigrations
+  ```
+  ```bash
     python manage.py migrate
   ```
-
-  - В папке с файлом manage.py выполнить команду:
+ 8. Запустить проект
   ```bash
     python manage.py runserver
   ```
+
+Сайт доступен локально по адресу: http://127.0.0.1:8000/
+
+Для создания суперпользователя и доступа к административной панели
+из корневой папки проекта необходимо выполнить
+```bash
+python manage.py createsuperuser
+```
+далее следовать инструкциям
+
+Административная панель доступна по адресу http://127.0.0.1:8000/admin
 
 ---
 
